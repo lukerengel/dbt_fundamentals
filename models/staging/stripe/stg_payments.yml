@@ -1,0 +1,20 @@
+version: 2
+
+models:
+  - name: stg_payments
+    description: Staging data for strip payment data.
+    columns:
+      - name: payment_id
+        description: Primary key of stg_payments.
+        tests:
+          - unique
+          - not_null
+      - name: payment_method
+        description: '{{ doc("payment_method")}}'
+        tests:
+          - accepted_values:
+              values:
+                - credit_card
+                - coupon
+                - bank_transfer
+                - gift_card

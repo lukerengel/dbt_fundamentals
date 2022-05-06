@@ -2,18 +2,23 @@ version: 2
 
 models:
     - name: stg_customers
+      description: Staged customer date for our jaffle shop app.
       columns:
         - name: customer_id
+          description: Primary key for stg_customers
           tests:
             - unique
             - not_null
     - name: stg_orders
+      description: Staged order data for our jaffle shop app.
       columns:
         - name: order_id
+          description: Primary key for stg_orders
           tests:
             - unique
             - not_null
         - name: status
+          description: '{{ doc("order_status")}}'
           tests:
             - accepted_values:
                 values:
